@@ -18,20 +18,10 @@ all: ./bin/chess.exe
 
 ./build/code.o: ./src/code.cpp ./src/title.h
 	$(g) $(CFLAGS) -o ./build/code.o -c ./src/code.cpp -lm
-	
-test: bin/chess-test
 
-bin/chess-test: build/test/main.o build/code.o
-			$(g) -o bin/chess-test build/test/main.o build/code.o
-
-build/test/main.o: test/main.cpp
-			$(g) $(CFLAGS) -o build/test/main.o -c test/main.cpp
-
-testRun:
-			./bin/chess-test
 
 clean:
-	rm -rf build/*.o build/*.d build/test/*.o build/test/*.d
+	rm -rf build/*.o build/*.d 
 
 run:
 	./bin/chess.exe
